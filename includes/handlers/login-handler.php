@@ -8,8 +8,11 @@ if(isset($_POST['loginButton'])) {
 
 	if($result == true) {
 		$_SESSION['userLoggedIn'] = $username;
-		header("Location: index.php");
+		if ($username === 'admin' && $password === 'Admin123') {
+			header("Location: admin-landing.php");
+		} else {
+			header("Location: index.php");
+		}
 	}
-
 }
 ?>

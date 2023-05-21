@@ -138,7 +138,7 @@ function deletePlaylist(playlistId) {
 				return;
 			}
 			//DONE IS THE PREFERRED WAY TO EXECUTE AJAX CALLS
-			//Do something when ajax returns
+			//Do something when ajax returns idk
 			openPage("yourMusic.php");
 		});
 	}

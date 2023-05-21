@@ -114,7 +114,20 @@
 				return;
 			}
 
-			if(preg_match('/[^A-Za-z0-9]/', $pw)) {
+			//run a loop through the password to check if it contains atleast one number and one special character, else throw an error
+			$number = 0;
+			$specialChar = 0;
+
+			for($i=0; $i<strlen($pw); $i++) {
+				if(is_numeric($pw[$i])) {
+					$number = 1;
+				}
+				if(preg_match('/[^A-Za-z0-9]/', $pw[$i])) {
+					$specialChar = 1;
+				}
+			}
+
+			if($number == 0 || $specialChar != 0) {
 				array_push($this->errorArray, Constants::$passwordNotAlphanumeric);
 				return;
 			}
@@ -125,7 +138,5 @@
 			}
 
 		}
-
-
 	}
 ?>

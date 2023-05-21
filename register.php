@@ -17,7 +17,7 @@
 
 <html>
 <head>
-	<title>Welcome to Slotify!</title>
+	<title>ASA Music Streaming</title>
 
 	<link rel="stylesheet" type="text/css" href="assets/css/register.css">
 
@@ -46,7 +46,6 @@
 
 	?>
 	
-
 	<div id="background">
 
 		<div id="loginContainer">
@@ -71,7 +70,6 @@
 					</div>
 					
 				</form>
-
 
 
 				<form id="registerForm" action="register.php" method="POST">
@@ -129,7 +127,6 @@
 					
 				</form>
 
-
 			</div>
 
 			<div id="loginText">
@@ -141,9 +138,7 @@
 					<li>Follow artists to keep up to date</li>
 				</ul>
 			</div>
-
 		</div>
 	</div>
-
 </body>
 </html>

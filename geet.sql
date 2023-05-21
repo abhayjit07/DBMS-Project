@@ -185,7 +185,7 @@ INSERT INTO `Songs` (`id`, `title`, `artist`, `album`, `genre`, `duration`, `pat
 
 CREATE TABLE IF NOT EXISTS `users` (
 `id` int(11) NOT NULL,
-  `username` varchar(25) NOT NULL,
+  `username` varchar(50) NOT NULL UNIQUE,
   `firstName` varchar(50) NOT NULL,
   `lastName` varchar(50) NOT NULL,
   `email` varchar(200) NOT NULL,
@@ -251,17 +251,23 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+--
+
+-- AUTO_INCREMENT for table `artists`
+--
+ALTER TABLE `artists`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+
 
 --
 -- AUTO_INCREMENT for table `albums`
 --
 ALTER TABLE `albums`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `artists`
---
-ALTER TABLE `artists`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+
+ALTER TABLE `albums`
+ADD FOREIGN KEY (`artist`) REFERENCES `artists`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 --
 -- AUTO_INCREMENT for table `genres`
 --
@@ -272,16 +278,33 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 ALTER TABLE `playlists`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `playlistSongs`
---
-ALTER TABLE `playlistSongs`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `playlists`
+ADD FOREIGN KEY (`owner`) REFERENCES `users`(`username`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
 --
 -- AUTO_INCREMENT for table `Songs`
 --
 ALTER TABLE `Songs`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
+
+ALTER TABLE `Songs`
+ADD FOREIGN KEY (`artist`) REFERENCES `artists`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- AUTO_INCREMENT for table `playlistSongs`
+--
+ALTER TABLE `playlistSongs`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `playlistSongs`
+ADD FOREIGN KEY (`playlistId`) REFERENCES `playlists`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE `playlistSongs`
+ADD FOREIGN KEY (`songId`) REFERENCES `songs`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
 --
 -- AUTO_INCREMENT for table `users`
 --
