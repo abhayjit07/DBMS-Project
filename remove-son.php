@@ -8,6 +8,36 @@ include("includes/handlers/login-handler.php");
 
 $sql = "SELECT * FROM songs";
 $result = $con->query($sql);
+
+
+// Check if the song is deleted successfully or there is an error
+if (isset($_GET["success"])) {
+    echo '<script>
+            setTimeout(function() {
+                alert("Song Updated successfully.");
+                window.location.href = "remove-son.php";
+            }, 100);
+          </script>';
+} elseif (isset($_GET["error"])) {
+    $errorCode = $_GET["error"];
+
+    if ($errorCode == 1) {
+        echo '<script>
+                setTimeout(function() {
+                    alert("There was an error updating the song. Please try again.");
+                    window.location.href = "remove-son.php";
+                }, 100);
+              </script>';
+    } elseif ($errorCode == 2) {
+        echo '<script>
+                setTimeout(function() {
+                    alert("Invalid artist ID, genre ID, or album ID.");
+                    window.location.href = "remove-son.php";
+                }, 100);
+              </script>';
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +69,7 @@ $result = $con->query($sql);
         table th,
         table td {
             padding: 10px;
-            text-align: left;
+            text-align: center;
             border-bottom: 1px solid #ccc;
         }
 
@@ -58,6 +88,7 @@ $result = $con->query($sql);
             padding: 8px 16px;
             border-radius: 4px;
             cursor: pointer;
+            margin-left: 10px;
         }
 
         button:hover {
@@ -104,6 +135,7 @@ $result = $con->query($sql);
         }
 
         .heading {
+            text-align: center;
             color: black;
         }
     </style>
@@ -141,8 +173,12 @@ $result = $con->query($sql);
                     echo "<td>" . $row["genre"] . "</td>";
                     echo "<td>";
                     echo '<form method="POST" action="remove-songs.php">';
-                    echo '<input type="hidden" name="id" value="' . $row["id"] . '">';
+                    echo '<input type="hidden" name="songid" value="' . $row["id"] . '">';
                     echo '<button type="submit" name="removeSong">Remove Song</button>';
+                    echo '</form>';
+                    echo '<form method="GET" action="modify-song.php">';
+                    echo '<input type="hidden" name="songid" value="' . $row["id"] . '">';
+                    echo '<button type="submit" name="modifySong">Modify Song</button>';
                     echo '</form>';
                     echo "</td>";
                     echo "</tr>";
@@ -152,5 +188,4 @@ $result = $con->query($sql);
         </div>
     </div>
 </body>
-
 </html>

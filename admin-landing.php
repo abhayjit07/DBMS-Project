@@ -206,7 +206,7 @@ $result = $con->query($sql);
                     echo "<td>" . $row["signUpDate"] . "</td>";
                     echo "<td>";
                     echo '<form method="POST" action="remove-user.php">';
-                    echo '<input type="hidden" name="username" value="' . $row["username"] . '">';
+                    echo '<input type="hidden" name="id" value="' . $row["id"] . '">';
                     echo '<button type="submit" name="removeUser">Remove User</button>';
                     echo '</form>';
                     echo "</td>";

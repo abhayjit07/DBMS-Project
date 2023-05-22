@@ -2,7 +2,7 @@
 include("includes/config.php");
 
 if (isset($_POST["removeUser"])) {
-    $userId = $_POST["userId"];
+    $userId = $_POST["id"];
 
     // Check if the user exists
     $checkUserQuery = "SELECT * FROM users WHERE id = '$userId'";

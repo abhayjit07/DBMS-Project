@@ -1,8 +1,8 @@
 <?php
 include("includes/config.php");
 
-if (isset($_POST["removeUser"])) {
-    $userId = $_POST["id"];
+if (isset($_POST["removeSong"])) {
+    $userId = $_POST["songid"];
 
     // Check if the user exists
     $checkUserQuery = "SELECT * FROM songs WHERE id = '$userId'";
@@ -20,4 +20,5 @@ if (isset($_POST["removeUser"])) {
         echo "User does not exist.";
     }
 }
+
 ?>
