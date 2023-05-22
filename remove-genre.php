@@ -3,48 +3,48 @@ include("includes/config.php");
 include("includes/classes/Account.php");
 include("includes/classes/Constants.php");
 
-// $account = new Account($con);
-
 include("includes/handlers/register-handler.php");
 include("includes/handlers/login-handler.php");
 
-// function getInputValue($name) {
-// 	if(isset($_POST[$name])) {
-// 		echo $_POST[$name];
-// 	}
-// }
-
-$sql = "SELECT * FROM artists";
+$sql = "SELECT * FROM genres";
 $result = $con->query($sql);
 
-// if ($result->num_rows > 0) {
-//     echo "<table>";
-//     echo "<tr><th>ID</th><th>Name</th><th>Email</th></tr>";
 
-//     while ($row = $result->fetch_assoc()) {
-//         echo "<tr>";
-//         echo "<td>" . $row["id"] . "</td>";
-//         echo "<td>" . $row["email"] . "</td>";
-//         echo "<td>" . $row["username"] . "</td>";
+// Check if the song is deleted successfully or there is an error
+if (isset($_GET["success"])) {
+    echo '<script>
+            setTimeout(function() {
+                alert("Genre Updated successfully.");
+                window.location.href = "remove-genre.php";
+            }, 100);
+          </script>';
+} elseif (isset($_GET["error"])) {
+    $errorCode = $_GET["error"];
 
-
-//         echo "</tr>";
-//     }
-
-//     echo "</table>";
-// } else {
-//     echo "No users found.";
-// }
-
-
-
+    if ($errorCode == 1) {
+        echo '<script>
+                setTimeout(function() {
+                    alert("Error updating genre. Please try again.");
+                    window.location.href = "remove-genre.php";
+                }, 100);
+              </script>';
+    } elseif ($errorCode == 2) {
+        echo '<script>
+                setTimeout(function() {
+                    alert("Genre already exists!");
+                    window.location.href = "remove-genre.php";
+                }, 100);
+              </script>';
+    }
+}
 
 ?>
 
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>Admin Page</title>
+    <title>Admin Page</title>    
     <style> 
       body {
             font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -58,12 +58,12 @@ $result = $con->query($sql);
 
         h1 {
             text-align: center;
-            padding: 20px;
+            margin-bottom: 50px;
         }
 
         h2{
             text-align: center;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
         table {
@@ -74,7 +74,7 @@ $result = $con->query($sql);
         table th,
         table td {
             padding: 10px;
-            text-align: left;
+            text-align: center;
             border-bottom: 1px solid #ccc;
         }
 
@@ -93,6 +93,7 @@ $result = $con->query($sql);
             padding: 8px 16px;
             border-radius: 4px;
             cursor: pointer;
+            margin-left: 10px;
         }
 
         button:hover {
@@ -139,6 +140,7 @@ $result = $con->query($sql);
         }
 
         .heading {
+            text-align: center;
             color: black;
         }
     </style>
@@ -146,6 +148,7 @@ $result = $con->query($sql);
 
 <body>
     <div class="container">
+
         <div class="left-section">
             <ul class="linkContainer">
                 <li class="links"><a href="remove-son.php">Songs</a></li>
@@ -157,23 +160,26 @@ $result = $con->query($sql);
         </div>
         <div class="right-section">
             <h1>ADMIN</h1>
-            <h2>Manage Artists</h2>
+            <h2>Manage Genres</h2>
             <table>
                 <tr>
                     <th class="heading">ID</th>
-                    <th class="heading">Artist</th>
-                    <th class="heading">Remove</th>
+                    <th class="heading">Genre</th>
+                    <th class="heading">Action</th>
                 </tr>
-
                 <?php
                 while ($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>" . $row["id"] . "</td>";
                     echo "<td>" . $row["name"] . "</td>";
                     echo "<td>";
-                    echo '<form method="POST" action="remove-artist.php">';
-                    echo '<input type="hidden" name="userId" value="' . $row["id"] . '">';
-                    echo '<button type="submit" name="removeUser">Remove Artist</button>';
+                    echo '<form method="POST" action="remove-gen.php">';
+                    echo '<input type="hidden" name="songid" value="' . $row["id"] . '">';
+                    echo '<button type="submit" name="removeSong">Remove Genre</button>';
+                    echo '</form>';
+                    echo '<form method="GET" action="modify-genre.php">';
+                    echo '<input type="hidden" name="songid" value="' . $row["id"] . '">';
+                    echo '<button type="submit" name="modifySong">Modify Genre</button>';
                     echo '</form>';
                     echo "</td>";
                     echo "</tr>";
@@ -181,15 +187,6 @@ $result = $con->query($sql);
                 ?>
             </table>
         </div>
-
-
-
     </div>
-
-
-
-
-
 </body>
-
 </html>

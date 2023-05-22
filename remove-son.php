@@ -58,7 +58,11 @@ if (isset($_GET["success"])) {
 
         h1 {
             text-align: center;
-            padding: 20px;
+            margin-bottom: 50px;
+        }
+
+        h2{
+            text-align: center;
         }
 
         table {
@@ -149,11 +153,13 @@ if (isset($_GET["success"])) {
                 <li class="links"><a href="remove-son.php">Songs</a></li>
                 <li class="links"><a href="admin-landing.php">Users</a></li>
                 <li class="links"><a href="remove-art.php">Artists</a></li>
+                <li class ="links"><a href="remove-genre.php">Genres</a></li>
+                <li class="links"><a href="remove-album.php">Albums</a></li>
             </ul>
         </div>
         <div class="right-section">
             <h1>ADMIN</h1>
-            <h2>Song Table</h2>
+            <h2>Manage Songs</h2>
             <table>
                 <tr>
                     <th class="heading">ID</th>

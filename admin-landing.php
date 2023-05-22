@@ -94,7 +94,11 @@ $result = $con->query($sql);
 
         h1 {
             text-align: center;
-            padding: 20px;
+        }
+
+        h2{
+            text-align: center;
+            margin-top: 30px;
         }
 
         table {
@@ -183,10 +187,13 @@ $result = $con->query($sql);
                 <li class="links"><a href="remove-son.php">Songs</a></li>
                 <li class="links"><a href="admin-landing.php">Users</a></li>
                 <li class="links"><a href="remove-art.php">Artists</a></li>
+                <li class ="links"><a href="remove-genre.php">Genres</a></li>
+                <li class="links"><a href="remove-album.php">Albums</a></li>
             </ul>
         </div>
         <div class="right-section">
             <h1>ADMIN</h1>
+            <h2>Manage Users</h2>
             <table>
                 <tr>
                     <th class="heading">ID</th>
