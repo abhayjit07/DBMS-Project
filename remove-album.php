@@ -15,7 +15,7 @@ if (isset($_GET["success"])) {
     echo '<script>
             setTimeout(function() {
                 alert("Album Updated successfully.");
-                window.location.href = "remove-genre.php";
+                window.location.href = "remove-album.php";
             }, 100);
           </script>';
 } elseif (isset($_GET["error"])) {
@@ -25,14 +25,23 @@ if (isset($_GET["success"])) {
         echo '<script>
                 setTimeout(function() {
                     alert("Error updating Album. Please try again.");
-                    window.location.href = "remove-genre.php";
+                    window.location.href = "remove-album.php";
                 }, 100);
               </script>';
     } elseif ($errorCode == 2) {
         echo '<script>
                 setTimeout(function() {
                     alert("Album already exists!");
-                    window.location.href = "remove-genre.php";
+                    window.location.href = "remove-album.php";
+                }, 100);
+              </script>';
+    }
+
+    elseif ($errorCode == 3) {
+        echo '<script>
+                setTimeout(function() {
+                    alert("Album deleted Successfully!");
+                    window.location.href = "remove-album.php";
                 }, 100);
               </script>';
     }

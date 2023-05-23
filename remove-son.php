@@ -36,6 +36,15 @@ if (isset($_GET["success"])) {
                 }, 100);
               </script>';
     }
+
+    elseif ($errorCode == 3) {
+        echo '<script>
+                setTimeout(function() {
+                    alert("Song sucessfully Deleted!");
+                    window.location.href = "remove-son.php";
+                }, 100);
+              </script>';
+    }
 }
 
 ?>

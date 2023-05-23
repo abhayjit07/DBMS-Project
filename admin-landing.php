@@ -79,7 +79,7 @@ if (isset($_GET["success"])) {
     echo '<script>
             setTimeout(function() {
                 alert("User Deleted successfully.");
-                window.location.href = "remove-user.php";
+                window.location.href = "admin-landing.php";
             }, 100);
           </script>';
         }

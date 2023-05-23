@@ -36,6 +36,15 @@ $result = $con->query($sql);
 //     echo "No users found.";
 // }
 
+if (isset($_GET["success"])) {
+    echo '<script>
+            setTimeout(function() {
+                alert("Artist Deleted successfully.");
+                window.location.href = "remove-art.php";
+            }, 100);
+          </script>';
+        }
+
 ?>
 
 <html>

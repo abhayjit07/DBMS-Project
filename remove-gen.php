@@ -12,7 +12,7 @@ if (isset($_POST["removeSong"])) {
         
         $deleteUserQuery = "DELETE FROM genres WHERE id = '$userId'";
         if ($con->query($deleteUserQuery) === TRUE) {
-            echo "Genre deleted successfully.";
+            header("Location: remove-genre.php?error=3");
         } else {
             echo "Error deleting Genre: " . $con->error;
         }

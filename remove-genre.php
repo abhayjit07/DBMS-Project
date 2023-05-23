@@ -36,6 +36,16 @@ if (isset($_GET["success"])) {
                 }, 100);
               </script>';
     }
+
+    elseif ($errorCode == 3) {
+        echo '<script>
+                setTimeout(function() {
+                    alert("Genre sucessfully Deleted!");
+                    window.location.href = "remove-genre.php";
+                }, 100);
+              </script>';
+    }
+
 }
 
 ?>

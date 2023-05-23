@@ -12,7 +12,7 @@ if (isset($_POST["removeSong"])) {
         // Delete the user
         $deleteUserQuery = "DELETE FROM songs WHERE id = '$userId'";
         if ($con->query($deleteUserQuery) === TRUE) {
-            echo "User deleted successfully.";
+            header("Location: remove-son.php?error=3");
         } else {
             echo "Error deleting user: " . $con->error;
         }
