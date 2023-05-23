@@ -12,7 +12,7 @@ if (isset($_POST["removeUser"])) {
         // Delete the user
         $deleteUserQuery = "DELETE FROM users WHERE id = '$userId'";
         if ($con->query($deleteUserQuery) === TRUE) {
-            echo "User deleted successfully.";
+            header("Location: admin-landing.php?success");
         } else {
             echo "Error deleting user: " . $con->error;
         }

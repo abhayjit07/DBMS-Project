@@ -156,6 +156,9 @@ if (isset($_GET["success"])) {
                 <li class ="links"><a href="remove-genre.php">Genres</a></li>
                 <li class="links"><a href="remove-album.php">Albums</a></li>
             </ul>
+            <form method="POST" action="register.php">
+                 <button type="submit" name="logout" style = "margin-top: 350%;margin-left: 80%;  background-color: red;">Logout</button>
+                </form>
         </div>
         <div class="right-section">
             <h1>ADMIN</h1>

@@ -74,6 +74,34 @@ include("includes/handlers/login-handler.php");
 
 $sql = "SELECT * FROM users WHERE firstname <> 'admin'";
 $result = $con->query($sql);
+
+if (isset($_GET["success"])) {
+    echo '<script>
+            setTimeout(function() {
+                alert("User Deleted successfully.");
+                window.location.href = "remove-user.php";
+            }, 100);
+          </script>';
+        }
+// } elseif (isset($_GET["error"])) {
+//     $errorCode = $_GET["error"];
+
+//     if ($errorCode == 1) {
+//         echo '<script>
+//                 setTimeout(function() {
+//                     alert("Error updating Album. Please try again.");
+//                     window.location.href = "remove-genre.php";
+//                 }, 100);
+//               </script>';
+//     } elseif ($errorCode == 2) {
+//         echo '<script>
+//                 setTimeout(function() {
+//                     alert("Album already exists!");
+//                     window.location.href = "remove-genre.php";
+//                 }, 100);
+//               </script>';
+//     }
+// }
 ?>
 
 <!DOCTYPE html>
@@ -190,6 +218,10 @@ $result = $con->query($sql);
                 <li class ="links"><a href="remove-genre.php">Genres</a></li>
                 <li class="links"><a href="remove-album.php">Albums</a></li>
             </ul>
+
+            <form method="POST" action="register.php">
+                 <button type="submit" name="logout" style = "margin-top: 350%;margin-left: 80%;  background-color: red;">Logout</button>
+                </form>
         </div>
         <div class="right-section">
             <h1>ADMIN</h1>

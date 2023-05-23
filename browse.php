@@ -22,7 +22,7 @@ include("includes/includedFiles.php");
 						"</div>
 					</span>
 
-				</div>";
+				</div>";		
 
 
 
