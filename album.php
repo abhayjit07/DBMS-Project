@@ -24,7 +24,6 @@ $artist = $album->getArtist();
 		<p><?php echo $album->getNumberOfSongs(); ?> songs</p>
 
 	</div>
-
 </div>
 
 
@@ -81,7 +80,6 @@ $artist = $album->getArtist();
 
 	</ul>
 </div>
-
 
 <nav class="optionsMenu">
 	

@@ -13,14 +13,10 @@ $owner = new User($con, $playlist->getOwner());
 ?>
 
 <div class="entityInfo">
-
 	<div class="leftSection">
-		<div class="playlistImage">
-			
+		<div class="playlistImage">			
 			<img src="assets/images/icons/playlist.png">
-
-		</div>
-		
+		</div>		
 	</div>
 
 	<div class="rightSection">
@@ -30,9 +26,7 @@ $owner = new User($con, $playlist->getOwner());
 		<button class="button" onclick="deletePlaylist('<?php echo $playlistId; ?>')">DELETE PLAYLIST</button>
 
 	</div>
-
 </div>
-
 
 <div class="tracklistContainer">
 	<ul class="tracklist">
@@ -76,21 +70,15 @@ $owner = new User($con, $playlist->getOwner());
 		}
 
 		?>
-
-		<script>
-			
+		<script>		
 			var tempSongIds = '<?php echo json_encode($songIdArray); ?>';		
 			tempPlaylist = JSON.parse(tempSongIds);
 			console.log(tempPlaylist);
 		</script>
-
-
 	</ul>
 </div>
 
 <nav class="optionsMenu">
-	
-
 	<input type="hidden" class="songId">
 	<?php echo Playlist::getPlaylistDropdown($con, $userLoggedIn->getUsername()); ?>
 	<div class="item" onclick="removeFromPlaylist(this, '<?php echo $playlistId ?>')">Remove from Playlist</div>

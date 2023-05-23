@@ -16,7 +16,7 @@ body {
 }
 
 #loginContainer * {
-	color: #fff;
+	color: white;
 	font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 	font-weight: normal;
 	line-height: 1em;
@@ -31,7 +31,7 @@ body {
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #fff;
+    color:   white;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
    color:    #fff;
@@ -65,14 +65,27 @@ body {
 	display: block;
     background-color: transparent;
     border: 0;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid white;
     height: 27px;
     line-height: 27px;
     width: 100%;
 }
 
+#inputContainer input[type="text"]:hover,
+#inputContainer input[type="email"]:hover,
+#inputContainer input[type="password"]:hover {
+	display: block;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #07d159;
+    height: 27px;
+    line-height: 27px;
+    width: 100%;
+}
+
+
 #inputContainer label {
-	color: #a0a0a0;
+	color: #cecccc;
     font-size: 13px;
     margin-top: 15px;
     display: block;
@@ -80,9 +93,9 @@ body {
 
 #inputContainer button {
 	background-color: transparent;
-    border: 2px solid #fff;
+    border: 2px solid white;
     border-radius: 250px;
-    color: #fff;
+    color: white;
     display: block;
     font-size: 14px;
     letter-spacing: 1px;
@@ -93,6 +106,8 @@ body {
 
 #inputContainer button:hover {
 	cursor: pointer;
+    background-color: #07d159;
+    color: #fff;
 }
 
 .hasAccountText span {
