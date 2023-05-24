@@ -1,26 +1,18 @@
 MUSIC STREAMING WEBSITE
 
+The following project has taken inspiration from the following repository https://github.com/manuarora700/music-streaming-project and made the following changes.
 
-Functionality:
+1. Removal of unnecessary temp folder
 
-1. Login/ Signup.
-2. Search for favourite tracks, artists, albums etc.
-3. Create and customize playlists.
-4. Control the music with usual controls such as play, pause, skip, shuffle, repeat etc.
-5. Adjust volume using volume bar.
-6. Update user details / Logout.
+2.Changes in Database:
+   i.  Added referential integrity 
+   ii. Added triggers
 
-
-Languages/Skills used:
-1. HTML5
-2. CSS3
-3. JavaScript
-4. PHP
-5. MYSQL
-6. AJAX
-7. jQuery
-8. JSON
-
+3. Functionalities Added:
+Implemented an admin mode which controls the entire database in the folllowing ways:
+   i. Modify and delete songs.
+  ii. Delete Users.
+ iii. Modify and delete albums.
 
 
 Developed by: Sachin Prasanna, Abhayjit Singh Gulati, Anagha H C
